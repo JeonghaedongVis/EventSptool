@@ -1,0 +1,22 @@
+module,input_field,output_field,rule_or_formula,destination
+M01_Webhook_In,(external request),raw_payload,pass-through,scenario_context
+M02_Validate_Required,raw_payload.event_name,validation_ok,"not empty",router
+M02_Validate_Required,raw_payload.row_data,validation_ok,"not empty",router
+M03_Load_Event_Mapping,event_name,mapping_rows,"lookup by event_name",data_store
+M04_Normalize_Payload,row_data.전화번호,mobile_e164,normalize_phone,normalized
+M04_Normalize_Payload,row_data.국가,country_code,to_iso2,normalized
+M04_Normalize_Payload,row_data.관심진료,interest_service,map_service,normalized
+M04_Normalize_Payload,submitted_at,sla_deadline_at,"submitted_at + 10m",normalized
+M05_Dedupe_Check,mobile_e164+event_name,is_duplicate,"exists(contact/deal)",router
+M06_Upsert_Contact,mobile_e164,phone,upsert by phone,hubspot_contact
+M06_Upsert_Contact,firstname,firstname,upsert,hubspot_contact
+M06_Upsert_Contact,event_name,event_name,upsert,hubspot_contact
+M07_Upsert_Deal,event_name+firstname+mobile_e164,dealname,string format,hubspot_deal
+M07_Upsert_Deal,(const),dealstage,new_lead,hubspot_deal
+M08_Assign_Owner_RoundRobin,country_code+interest_service,owner_id,round-robin,hubspot_owner
+M09_Select_Template,preferred_lang+interest_service,template_code,template selector,message_layer
+M10_Send_Message,template_code+mobile_e164,message_status,provider send,message_layer
+M10_Send_Message,(provider response),provider_message_id,pass-through,log
+M11_Update_CRM_Status,message_status,dealstage,"sent->auto_replied / failed->new_lead",hubspot_deal
+M12_Log_Audit,all context,run_log,insert,audit_store
+M13_Error_Retry_Queue,error_code+attempt,retry_at,"+1m,+5m,+15m",retry_queue
