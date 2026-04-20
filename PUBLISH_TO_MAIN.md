@@ -153,3 +153,18 @@ git remote -v
 git branch -vv
 git ls-remote --heads origin
 ```
+
+---
+
+## 머지 후 로컬 싱크(자동)
+PR을 GitHub에서 머지한 뒤 로컬을 최신 `main`으로 맞추려면:
+
+### macOS/Linux
+```bash
+bash scripts/sync_after_merge.sh https://github.com/JeonghaedongVis/EventSptool.git
+```
+
+### Windows PowerShell
+```powershell
+./scripts/sync_after_merge.ps1 -RemoteUrl "https://github.com/JeonghaedongVis/EventSptool.git"
+```
