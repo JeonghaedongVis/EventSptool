@@ -1,0 +1,34 @@
+{
+  "templates": [
+    {
+      "code": "btn_checkup_info_ko",
+      "channel": "kakao_or_whatsapp",
+      "lang": "ko",
+      "body": "안녕하세요 {{name}}님, 문의주신 {{interest_service}} 안내드립니다. 가능한 시간: {{available_slots}}. 원하시면 바로 예약 도와드릴게요."
+    },
+    {
+      "code": "btn_price_info_ko",
+      "channel": "kakao_or_whatsapp",
+      "lang": "ko",
+      "body": "{{name}}님, {{interest_service}} 관련 예상 비용 안내드립니다. 상세 항목은 상담 후 확정되며 원하시면 지금 바로 연결해드릴게요."
+    },
+    {
+      "code": "btn_booking_push_ko",
+      "channel": "kakao_or_whatsapp",
+      "lang": "ko",
+      "body": "{{name}}님, 현재 {{available_slots}} 예약이 가능합니다. 희망 시간 회신 주시면 즉시 확정 도와드리겠습니다."
+    },
+    {
+      "code": "btn_reengage_ko",
+      "channel": "kakao_or_whatsapp",
+      "lang": "ko",
+      "body": "안녕하세요 {{name}}님, 이전 문의 건 확인차 연락드립니다. 원하실 때 다시 상담 도와드리겠습니다."
+    },
+    {
+      "code": "btn_checkup_info_en",
+      "channel": "whatsapp",
+      "lang": "en",
+      "body": "Hi {{name}}, thanks for your inquiry about {{interest_service}}. Available slots: {{available_slots}}. Reply to confirm your preferred time."
+    }
+  ]
+}

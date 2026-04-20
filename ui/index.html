@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event CRM MVP UI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>이벤트 CRM MVP</h1>
+      <p>새 행사 생성 → 구글시트 연결 → 자동응답/상담 진행</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>1) 새로운 행사 입력</h2>
+        <form id="event-form">
+          <label>행사명
+            <input id="event-name" required placeholder="예: 카자흐스탄 4월 검진 이벤트" />
+          </label>
+          <label>국가
+            <input id="event-country" required placeholder="예: KZ" />
+          </label>
+          <label>관심 진료 기본값
+            <select id="default-service">
+              <option value="checkup">검진</option>
+              <option value="spine">척추</option>
+              <option value="intervention">인터벤션</option>
+            </select>
+          </label>
+          <button type="submit">행사 저장</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>2) 구글시트 주소 입력</h2>
+        <form id="sheet-form">
+          <label>행사 선택
+            <select id="event-select"></select>
+          </label>
+          <label>Google Sheet URL
+            <input id="sheet-url" type="url" required placeholder="https://docs.google.com/spreadsheets/..." />
+          </label>
+          <button type="submit">시트 연결</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>3) 진행상황 운영 (자동응답 + 문의응답선택)</h2>
+        <div id="event-meta" class="meta"></div>
+        <div class="actions">
+          <button id="simulate-lead-btn">테스트 리드 유입</button>
+          <button id="run-auto-reply-btn">자동응답 실행</button>
+        </div>
+        <details>
+          <summary><strong>Instagram New 시트 행 인입(실데이터 형태)</strong></summary>
+          <form id="instagram-ingest-form">
+            <label>created_time
+              <input id="ig-created-time" placeholder="2026-04-01T20:54:53+05:00" />
+            </label>
+            <label>platform
+              <input id="ig-platform" placeholder="ig / fb / M1" />
+            </label>
+            <label>phone_number
+              <input id="ig-phone" placeholder="p:+77475789240" />
+            </label>
+            <label>full_name
+              <input id="ig-full-name" placeholder="환자 이름" />
+            </label>
+            <label>lead_status
+              <input id="ig-lead-status" placeholder="CREATED" />
+            </label>
+            <button type="submit">Instagram New 형식으로 인입</button>
+          </form>
+        </details>
+        <div id="lead-list"></div>
+      </section>
+    </main>
+
+    <template id="lead-template">
+      <article class="lead-card">
+        <header>
+          <strong class="lead-name"></strong>
+          <span class="lead-stage"></span>
+        </header>
+        <p class="lead-meta"></p>
+        <div class="quick-buttons">
+          <button data-action="btn_checkup_info">검진 안내 보내기</button>
+          <button data-action="btn_price_info">가격 안내 보내기</button>
+          <button data-action="btn_booking_push">예약 유도 메시지</button>
+          <button data-action="btn_reengage">재문의 유도</button>
+        </div>
+        <label>상태
+          <select class="stage-select">
+            <option value="new_lead">신규 리드</option>
+            <option value="auto_replied">자동응답 완료</option>
+            <option value="consulting">상담 진행중</option>
+            <option value="booking_push">예약 유도</option>
+            <option value="booked">예약 완료</option>
+            <option value="no_response">미응답</option>
+            <option value="recontact_needed">재접촉 필요</option>
+          </select>
+        </label>
+        <div class="log"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
