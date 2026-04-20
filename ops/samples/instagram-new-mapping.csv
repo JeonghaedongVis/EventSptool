@@ -1,0 +1,6 @@
+source_tab,source_column,target_field,transform_rule,required
+Instagram New,created_time,createdAt,as_is_or_now,true
+Instagram New,platform,platform,normalize_platform,true
+Instagram New,phone_number,phone,strip_prefix_p,true
+Instagram New,full_name,name,trim,false
+Instagram New,lead_status,lead_status,trim,false
