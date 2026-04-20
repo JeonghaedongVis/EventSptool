@@ -1,0 +1,32 @@
+{
+  "buttons": [
+    {
+      "id": "btn_checkup_info",
+      "label": "검진 안내 보내기",
+      "template_code_pattern": "btn_checkup_info_{lang}",
+      "next_stage": "consulting",
+      "next_action_offset_hours": 24
+    },
+    {
+      "id": "btn_price_info",
+      "label": "가격 안내 보내기",
+      "template_code_pattern": "btn_price_info_{lang}",
+      "next_stage": "consulting",
+      "next_action_offset_hours": 24
+    },
+    {
+      "id": "btn_booking_push",
+      "label": "예약 유도 메시지",
+      "template_code_pattern": "btn_booking_push_{lang}",
+      "next_stage": "booking_push",
+      "next_action_offset_hours": 12
+    },
+    {
+      "id": "btn_reengage",
+      "label": "재문의 유도",
+      "template_code_pattern": "btn_reengage_{lang}",
+      "next_stage": "recontact_needed",
+      "next_action_offset_hours": 48
+    }
+  ]
+}

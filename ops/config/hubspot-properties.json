@@ -1,0 +1,21 @@
+{
+  "contact_properties": [
+    {"name": "lead_external_id", "label": "Lead External ID", "type": "string", "required": false},
+    {"name": "mobile_e164", "label": "Mobile (E164)", "type": "string", "required": true},
+    {"name": "country_code", "label": "Country Code", "type": "enumeration", "options": ["KR", "KZ", "EN", "JP"], "required": true},
+    {"name": "preferred_lang", "label": "Preferred Language", "type": "enumeration", "options": ["ko", "ru", "en", "kk"], "required": true},
+    {"name": "interest_service", "label": "Interest Service", "type": "enumeration", "options": ["checkup", "spine", "intervention"], "required": true},
+    {"name": "event_name", "label": "Event Name", "type": "string", "required": true},
+    {"name": "source_channel", "label": "Source Channel", "type": "enumeration", "options": ["instagram_ads", "google_form", "google_sheet", "manual"], "required": true},
+    {"name": "ad_campaign_id", "label": "Ad Campaign ID", "type": "string", "required": false},
+    {"name": "sla_deadline_at", "label": "SLA Deadline At", "type": "datetime", "required": true},
+    {"name": "first_response_at", "label": "First Response At", "type": "datetime", "required": false},
+    {"name": "first_response_minutes", "label": "First Response Minutes", "type": "number", "required": false}
+  ],
+  "deal_properties": [
+    {"name": "status_reason", "label": "Status Reason", "type": "enumeration", "options": ["none", "no_answer", "price_pending", "booked", "recontact_needed"], "required": true},
+    {"name": "next_action_at", "label": "Next Action At", "type": "datetime", "required": false},
+    {"name": "last_template_code", "label": "Last Template Code", "type": "string", "required": false},
+    {"name": "message_last_status", "label": "Message Last Status", "type": "enumeration", "options": ["queued", "sent", "delivered", "failed"], "required": false}
+  ]
+}

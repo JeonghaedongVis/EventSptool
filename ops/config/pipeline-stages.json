@@ -1,0 +1,12 @@
+{
+  "pipeline_name": "Event Lead Pipeline",
+  "stages": [
+    {"id": "new_lead", "label": "신규 리드", "order": 1},
+    {"id": "auto_replied", "label": "자동응답 완료", "order": 2},
+    {"id": "consulting", "label": "상담 진행중", "order": 3},
+    {"id": "booking_push", "label": "예약 유도", "order": 4},
+    {"id": "booked", "label": "예약 완료", "order": 5},
+    {"id": "no_response", "label": "미응답", "order": 6},
+    {"id": "recontact_needed", "label": "재접촉 필요", "order": 7}
+  ]
+}
