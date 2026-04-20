@@ -205,3 +205,4 @@ Reply with your preferred time and we will book it for you.
 1. 현재 사용 중인 메신저 공급사(카카오/WhatsApp) 확정
 2. 첫 이벤트의 실제 시트 컬럼 샘플 1개 확보
 3. 본 문서 기준으로 내부키(속성명) 확정 후 즉시 구축 시작
+
