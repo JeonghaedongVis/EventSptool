@@ -1,0 +1,6 @@
+event_name,source_column_name,target_field,transform_rule,required
+카자흐스탄 4월 검진 이벤트,전화번호,mobile_e164,normalize_phone,true
+카자흐스탄 4월 검진 이벤트,국가,country_code,to_iso2,true
+카자흐스탄 4월 검진 이벤트,관심진료,interest_service,map_service,true
+카자흐스탄 4월 검진 이벤트,이름,firstname,trim,false
+카자흐스탄 4월 검진 이벤트,캠페인ID,ad_campaign_id,as_is,false
