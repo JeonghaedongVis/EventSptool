@@ -26,9 +26,11 @@ REQUIRED_FILES = [
     "ops/config/response-buttons.json",
     "ops/templates/message-templates.json",
     "ops/samples/google-sheet-mapping.csv",
+    "ops/samples/instagram-new-mapping.csv",
     "ops/samples/incoming-webhook-payload.json",
     "ops/make/make-scenario-io-spec-ko.md",
     "ops/make/module-field-mapping.csv",
+    "backend/mvp_server.py",
 ]
 
 JSON_FILES = [
