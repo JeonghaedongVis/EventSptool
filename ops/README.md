@@ -20,3 +20,17 @@
 ## 주의
 - 실제 API 스키마는 사용 중인 HubSpot 버전/메시징 공급사 사양에 맞춰 조정 필요
 - 템플릿은 국가별 정책/승인 절차(카카오/WhatsApp)에 맞춰 사전 승인 필요
+
+
+## 검증(Validation)
+다음 명령으로 산출물 무결성을 빠르게 점검할 수 있습니다.
+
+```bash
+python3 scripts/validate_ops_artifacts.py
+```
+
+검증 항목:
+- 필수 파일 존재 여부
+- JSON 문법 검사
+- Make 모듈 매핑 CSV 헤더/빈값 검사
+- CSV 출력 필드와 I/O 명세서 텍스트 간 교차 점검
