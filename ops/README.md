@@ -34,3 +34,15 @@ python3 scripts/validate_ops_artifacts.py
 - JSON 문법 검사
 - Make 모듈 매핑 CSV 헤더/빈값 검사
 - CSV 출력 필드와 I/O 명세서 텍스트 간 교차 점검
+
+
+## 현재 상태 점검
+아래 명령으로 Git/원격/산출물/검증 결과를 한 번에 확인할 수 있습니다.
+
+```bash
+bash scripts/check_current_status.sh
+```
+
+```powershell
+./scripts/check_current_status.ps1
+```
