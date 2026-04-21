@@ -52,7 +52,12 @@ async function api(path, options = {}) {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
-  if (!res.ok) throw new Error(`API ${res.status}`);
+  if (!res.ok) {
+    if (res.status === 501) {
+      throw new Error("API 501: 정적 서버로 실행중입니다. `python3 scripts/serve_ui.py` 또는 `python3 backend/mvp_server.py`로 실행하세요.");
+    }
+    throw new Error(`API ${res.status}`);
+  }
   return res.json();
 }
 

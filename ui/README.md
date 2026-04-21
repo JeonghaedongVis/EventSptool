@@ -13,9 +13,11 @@
 
 ## 실행
 ```bash
-python3 backend/mvp_server.py
+python3 scripts/serve_ui.py
 # 브라우저에서 http://localhost:8080/ui/ 접속
 ```
+
+> `python -m http.server`로 실행하면 `POST /api/...`가 501로 실패합니다.
 
 ## API 확인
 - `GET http://localhost:8080/api/health`

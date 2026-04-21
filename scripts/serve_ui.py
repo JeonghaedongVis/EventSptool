@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
-"""Serve repository root so /ui/ works reliably."""
+"""Serve UI + API together.
 
-from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
-from pathlib import Path
+This wraps backend/mvp_server.py so POST /api/* works.
+"""
+
+from http.server import ThreadingHTTPServer
 import os
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from backend.mvp_server import Handler  # noqa: E402
 
 PORT = int(os.environ.get("PORT", "8080"))
-ROOT = Path(__file__).resolve().parents[1]
 
-os.chdir(ROOT)
-print(f"[INFO] Serving repo root: {ROOT}")
-print(f"[INFO] Open: http://localhost:{PORT}/ui/")
+print(f"[INFO] Serving Event CRM MVP at http://localhost:{PORT}/ui/")
+print(f"[INFO] API enabled at http://localhost:{PORT}/api/health")
 
-httpd = ThreadingHTTPServer(("", PORT), SimpleHTTPRequestHandler)
-httpd.serve_forever()
+ThreadingHTTPServer(("", PORT), Handler).serve_forever()
